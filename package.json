@@ -1,0 +1,65 @@
+{
+  "name": "react-slider-ruler",
+  "version": "1.0.0",
+  "description": "A React component allowing users to select a value along a subjective range and step.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "react",
+    "slide",
+    "rule",
+    "slider",
+    "ruler",
+    "scale",
+    "number",
+    "input"
+  ],
+  "author": {
+    "name": "fishbone",
+    "email": "imfishbone@163.com",
+    "url": "https://github.com/imfishbone"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "cd example-demo-app && npm start",
+    "build:dev": "babel src --extensions .jsx,.js,.tsx,.ts -d dist && tsc && npm link",
+    "build": "babel src --extensions .jsx,.js,.tsx,.ts -d dist && tsc",
+    "lint": "eslint --ext .jsx,.js,.tsx,.ts src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && cd example-demo-app && npm run lint"
+    }
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "csstype": "^3.0.8",
+    "hidpi-canvas": "^1.0.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^4.22.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  }
+}

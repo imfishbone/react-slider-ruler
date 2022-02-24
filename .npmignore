@@ -1,0 +1,19 @@
+.git
+node_modules/
+example-demo-app/
+package-lock.json
+src/
+.eslintignore
+.eslintrc.json
+babel.config.json
+tsconfig.json
+webpack.config.js
+.editorconfig
+.gitattributes
+.prettierrc.json
+docs/
+
+# unused d.ts files
+dist/data/styles.d.ts
+dist/utils/*.d.ts
+dist/Canvas.d.ts
