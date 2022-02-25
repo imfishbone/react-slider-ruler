@@ -23,7 +23,7 @@ export default React.memo(function () {
         height={68}
         markStyle={{ top: 12, height: 12, color: '#AEB1C2', width: 1 }}
         smallerMarkStyle={{ top: 12, height: 6, color: '#DEE0E6', width: 1 }}
-        numberStyle={{ color: '#AEB1C2', size: '2.5em', top: 94 }}
+        numberStyle={{ color: '#AEB1C2', size: '2.5em', top: 300 }}
         value={value}
         onChange={setValue}
       />
