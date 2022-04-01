@@ -20,7 +20,7 @@ const calcInertialShfitInPx = (touchPoints: Array<TouchPoint>): number => {
   if (touchPoints.length < 4) return 0;
   const [first, , , last] = touchPoints.slice(-4);
   const v = ((last.shift - first.shift) / (last.time - first.time)) * 1000;
-  return (Math.sign(v) * v ** 2) / 6000;
+  return (Math.sign(v) * v ** 2) / (6000 * 2);
   // let s = 0;
   // if (touchPoints.length >= 4) {
   //   let _points = touchPoints.slice(-4),

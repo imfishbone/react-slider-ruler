@@ -3,14 +3,14 @@ import drawingUtil from './utils/drawingUtil';
 import styles from './data/styles';
 import util from './utils/common';
 
-const dpr =
+const deviceDpr =
   window.devicePixelRatio ||
   window.webkitDevicePixelRatio ||
   window.mozDevicePixelRatio ||
   1;
 
 export default class Canvas extends React.PureComponent {
-  dpr = dpr;
+  dpr = deviceDpr;
 
   coordinate = 0;
 
@@ -20,7 +20,7 @@ export default class Canvas extends React.PureComponent {
 
   state = { translate: 0 };
 
-  browserEnv = Boolean(window.ontouchstart);
+  // browserEnv = Boolean(window.ontouchstart);
 
   canvasRef = React.createRef();
 
@@ -79,10 +79,18 @@ export default class Canvas extends React.PureComponent {
   };
 
   handleTouchEnd = () => {
+    const { isSlowMotion } = this.props;
     if (!this.isTouching) return;
     this.isTouching = false;
-    if (this.browserEnv)
+    // if (this.browserEnv) {
+    //   console.log('touch end3');
+    //   this.moveGradations(util.calcInertialShfitInPx(this.touchPoints));
+    // }
+    // this.moveGradations(util.calcInertialShfitInPx(this.touchPoints));
+
+    if (isSlowMotion) {
       this.moveGradations(util.calcInertialShfitInPx(this.touchPoints));
+    }
     this.setState({ translate: 0 });
     this.touchPoints = [];
   };
@@ -109,11 +117,11 @@ export default class Canvas extends React.PureComponent {
   }
 
   moveGradations(delta) {
-    // console.log(delta, '---moveGradations(delta)--');
     const diffInPx = this.isReverseAxis ? delta : -delta;
-    const { gap, step, onChange } = this.props;
+    const { gap, step, moveStep, onChange } = this.props;
     const diff = Math.round(diffInPx / gap);
-    const increment = Math.sign(diff) * step; // value increment
+    const _step = moveStep > 0 ? moveStep : step;
+    const increment = Math.sign(diff) * _step;
     let speed = Math.abs(diff); // for sliding
 
     const draw = () => {

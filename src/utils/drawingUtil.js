@@ -89,8 +89,9 @@ const drawCanvas = ({
   calcMarkCoordinate,
   isXAxis,
 }) => {
-
+  // eslint-disable-next-line no-param-reassign
   canvas.style.width = `${width}px`;
+  // eslint-disable-next-line no-param-reassign
   canvas.style.height = `${height}px`;
 
   const drawLine = isXAxis ? _drawVerticalLine : _drawLine;

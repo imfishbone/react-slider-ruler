@@ -21,6 +21,7 @@ export interface NumberStyle {
   family?: Property.FontFamily;
   color?: Property.Color;
   top?: number;
+  bottom?: number;
   left?: number;
   textAlign?: 'left' | 'right' | 'center' | 'start' | 'end';
   textBaseline?:
@@ -50,4 +51,6 @@ export interface SlideRuleProps {
   cursor?: React.ReactElement;
   showWarning?: boolean;
   axis?: Axis;
+  isSlowMotion?: boolean; // 是否缓动
+  moveStep?: number; // 固定每次移动的步长，使中间刻度总是指向 moveStep 的整数倍, isSlowMotion 和 moveStep 最好不要同时使用
 }

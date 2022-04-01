@@ -2,6 +2,6 @@
 .vscode/
 node_modules/
 dist/
-example-demo-apps/dist/
+example/dist/
 webpack.config.js
 docs/

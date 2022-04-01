@@ -11,7 +11,6 @@ const DEFAULT_X_AXIS_PROPS: SlideRuleProps = {
   smallerMarkStyle: { color: '#E4E4E4', width: 2, height: 15, top: 0 },
   numberStyle: {
     size: '1.25em',
-    family: 'Arial',
     color: 'rgba(0, 0, 0, 0.87)',
     top: 36,
     textAlign: 'center',
@@ -28,7 +27,6 @@ const DEFAULT_Y_AXIS_PROPS: SlideRuleProps = {
   smallerMarkStyle: { color: '#E4E4E4', width: 15, height: 2, left: 0 },
   numberStyle: {
     size: '1.25em',
-    family: 'Arial',
     color: 'rgba(0, 0, 0, 0.87)',
     left: 36,
     textAlign: 'left',
@@ -67,6 +65,8 @@ export default React.forwardRef(function SlideRule(
     unit = '',
     style,
     showWarning = false,
+    isSlowMotion = true,
+    moveStep = 0,
     ...rest
   } = props;
 
@@ -74,7 +74,6 @@ export default React.forwardRef(function SlideRule(
 
   const def = _isXAxis(axis) ? DEFAULT_X_AXIS_PROPS : DEFAULT_Y_AXIS_PROPS;
   const { width = def.width, height = def.height, cursor = def.cursor } = rest;
-  // console.log(width, 'def.width');
   return (
     <div ref={ref} style={styles.createRootStyle(style)}>
       <Canvas
@@ -91,6 +90,8 @@ export default React.forwardRef(function SlideRule(
         width={width}
         height={height}
         unit={unit}
+        isSlowMotion={isSlowMotion}
+        moveStep={moveStep}
       />
       <div style={styles.createCenterStyle(_isXAxis(axis))}>{cursor}</div>
     </div>
