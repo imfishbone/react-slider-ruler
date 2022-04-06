@@ -1,6 +1,6 @@
 {
   "name": "react-slider-ruler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A React component allowing users to select a value along a subjective range and step.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
